@@ -2,19 +2,11 @@
 // eslint-disable-next-line no-unused-vars
 import { Character } from '../js/Character.js';
 
-test('first add_test', () => {
+test('add_test', () => {
   const char = new Character();
-  char.add('fff');
-  // char.add('ggg');
-  // char.add('fff');
-  // char.addAll('g', 'h', 'g', 'fff', 'da');
-  expect(char.members.has('fff')).toBe(true);
-});
-test('second add_test', () => {
-  const char = new Character();
-  char.add('fff');
-  char.add('ggg');
-  char.add('fff');
+  char.add(1);
+  char.add(2);
+  char.add(2);
   function keyArrFunc() {
     const keyArr = [];
     // eslint-disable-next-line no-restricted-syntax
@@ -23,12 +15,12 @@ test('second add_test', () => {
     }
     return keyArr;
   }
-  const expectedArr = ['fff', 'ggg'];
+  const expectedArr = [1, 2];
   expect(keyArrFunc()).toEqual(expectedArr);
 });
 test('addAll test', () => {
   const char = new Character();
-  char.addAll('g', 'h', 'g', 'fff', 'fff', 'da');
+  char.addAll(1, 2, 1, 3, 3, 4);
   function keyArrFunc() {
     const keyArr = [];
     // eslint-disable-next-line no-restricted-syntax
@@ -37,15 +29,15 @@ test('addAll test', () => {
     }
     return keyArr;
   }
-  const expectedArr = ['g', 'h', 'fff', 'da'];
+  const expectedArr = [1, 2, 3, 4];
   expect(keyArrFunc()).toEqual(expectedArr);
 });
 test('toArray test', () => {
   const char = new Character();
-  char.add('fff');
-  char.add('ggg');
-  char.add('fff');
+  char.add(1);
+  char.add(2);
+  char.add(1);
   char.toArray();
-  const expectArr = ['fff', 'ggg'];
+  const expectArr = [1, 2];
   expect(char.toArray()).toEqual(expectArr);
 });
