@@ -15,7 +15,6 @@ export default class Team {
   }
 
   toArray() {
-    const array = [...this.members];
-    return array;
+    this.members = [...this.members];
   }
 }

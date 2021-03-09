@@ -39,5 +39,5 @@ test('toArray test', () => {
   char.add(1);
   char.toArray();
   const expectArr = [1, 2];
-  expect(char.toArray()).toEqual(expectArr);
+  expect(char.members).toEqual(expectArr);
 });
