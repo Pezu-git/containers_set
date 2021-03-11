@@ -6,7 +6,7 @@ test('add_test', () => {
   const char = new Character();
   char.add(1);
   char.add(2);
-  char.add(2);
+  char.add(3);
   function keyArrFunc() {
     const keyArr = [];
     // eslint-disable-next-line no-restricted-syntax
@@ -15,7 +15,7 @@ test('add_test', () => {
     }
     return keyArr;
   }
-  const expectedArr = [1, 2];
+  const expectedArr = [1, 2, 3];
   expect(keyArrFunc()).toEqual(expectedArr);
 });
 test('addAll test', () => {
@@ -36,8 +36,18 @@ test('toArray test', () => {
   const char = new Character();
   char.add(1);
   char.add(2);
-  char.add(1);
+  char.add(3);
   char.toArray();
-  const expectArr = [1, 2];
+  const expectArr = [1, 2, 3];
   expect(char.members).toEqual(expectArr);
+});
+test('error test', () => {
+  const char = new Character();
+  function oneElse(pers) {
+    char.add(pers);
+    char.add(pers);
+  }
+  expect(() => {
+    oneElse(1);
+  }).toThrow('Персонаж уже добавлен');
 });
